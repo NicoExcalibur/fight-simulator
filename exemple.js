@@ -33,11 +33,36 @@ class Wizard extends Character {
 
     attackOtherCharacter(character) {
         character.health -= this.attack;
-
+        console.log(this.nickname + " attaque " + character.nickname + " en lançant un sort ( " + this.attack + " dégâts ).");
+        this.levelUp();
+        character.checkHealth();
     }
 
     specialAttack(character) {
         character.health -= this.attack * 5;
+        console.log(this.nickname + " avec son coup spécial puissance des arcanes " + character.nickname + "  ( " + this.attack * 5 + " dégâts ).");
+        this.levelUp();
+        character.checkHealth();
+    }    
+}
+
+class Warrior extends Character {
+
+    constructor(nickname) {
+        super(nickname, "guerrier", 350, 50);
     }
-    
+
+    attackOtherCharacter(character) {
+        character.health -= this.attack;
+        console.log(this.nickname + " attaque avec son épée" + character.nickname + "  avec son épée ( " + this.attack + " dégâts ).");
+        this.levelUp();
+        character.checkHealth();
+    }
+
+    specialAttack(character) {
+        character.health -= this.attack * 5;
+        console.log(this.nickname + " attaque avec son coup spécial haches de guerre " + character.nickname + "  ( " + this.attack * 5 + " dégâts ).");
+        this.levelUp();
+        character.checkHealth();
+    }   
 } 
