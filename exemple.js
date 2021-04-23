@@ -1,5 +1,3 @@
-
-
 class Character {
     constructor(nickname, characClass, health, attack) {
         this.nickname = nickname;
@@ -40,7 +38,7 @@ class Wizard extends Character {
 
     specialAttack(character) {
         character.health -= this.attack * 5;
-        console.log(this.nickname + " avec son coup spécial puissance des arcanes " + character.nickname + "  ( " + this.attack * 5 + " dégâts ).");
+        console.log(this.nickname + " avec son coup spécial puissance des arcanes " + character.nickname + " ( " + this.attack * 5 + " dégâts ).");
         this.levelUp();
         character.checkHealth();
     }    
@@ -54,15 +52,27 @@ class Warrior extends Character {
 
     attackOtherCharacter(character) {
         character.health -= this.attack;
-        console.log(this.nickname + " attaque avec son épée" + character.nickname + "  avec son épée ( " + this.attack + " dégâts ).");
+        console.log(this.nickname + " attaque " + character.nickname + "  avec son épée ( " + this.attack + " dégâts ).");
         this.levelUp();
         character.checkHealth();
     }
 
     specialAttack(character) {
         character.health -= this.attack * 5;
-        console.log(this.nickname + " attaque avec son coup spécial haches de guerre " + character.nickname + "  ( " + this.attack * 5 + " dégâts ).");
+        console.log(this.nickname + " attaque avec son coup spécial haches de guerre " + character.nickname + " ( " + this.attack * 5 + " dégâts ).");
         this.levelUp();
         character.checkHealth();
     }   
-} 
+}
+
+
+// fight plan
+var gandalf = new Wizard('Gandalf');
+var thor    = new Warrior('Thor');
+console.log(thor.info);
+console.log(gandalf.info);
+gandalf.attackOtherCharacter(thor);
+console.log(thor.info);
+thor.attackOtherCharacter(gandalf);
+console.log(gandalf.info);
+gandalf.specialAttack(thor);
